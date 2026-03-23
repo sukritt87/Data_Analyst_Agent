@@ -6,3 +6,4 @@ python-dotenv
 google-generativeai
 google-adk
 streamlit
+google-genai
