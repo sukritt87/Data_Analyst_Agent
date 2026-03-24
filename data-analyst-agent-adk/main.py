@@ -1,9 +1,8 @@
-from app.agent import DataAnalystAgent
+import asyncio
+from analyst_agent.agent import root_agent
 
 
-def main():
-    agent = DataAnalystAgent("data/sample_data.csv")
-
+async def main():
     print("AI Data Analyst Agent Ready!")
     print("Type 'exit' to quit.\n")
 
@@ -13,12 +12,12 @@ def main():
         if user_input.lower() == "exit":
             break
 
-        result = agent.handle_query(user_input)
+        response = await root_agent.run(user_input)
 
         print("\nResult:")
-        print(result)
+        print(response)
         print("-" * 50)
 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
